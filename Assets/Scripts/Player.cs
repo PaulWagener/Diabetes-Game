@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
 				EatFood(newTile.food);
 				Destroy(newTile.food.gameObject);
 			}
-
+			Nom();
 			game.EndPlayerMoveTurn();
 		}
 	}
