@@ -68,7 +68,7 @@ public class TileEditor : Editor
 					EditorUtility.SetDirty(tile2);
 				}
 			}
-			tile.starttile = false;
+			tile.starttile = true;
 			EditorUtility.SetDirty(tile);
 		}
 
