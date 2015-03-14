@@ -17,11 +17,10 @@ public class Tile : MonoBehaviour {
 	void Update () {
 
 	}
-
+	
 	void OnMouseDown()
 	{
-		if (game.currentPlayer.currentTile.connectingTiles.Contains(this))
-			game.currentPlayer.currentTile = this;
+		game.OnTileClicked (this);
 	}
 
 	void OnDrawGizmos()
