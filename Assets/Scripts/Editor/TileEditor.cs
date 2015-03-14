@@ -74,5 +74,31 @@ public class TileEditor : Editor
 
 		if (tile.starttile)
 			GUILayout.Label("This is the starting tile");
+
+		
+		// Make sure that tiles have the correct sprite associated with them
+		// TODO: the below method is supremely inefficient
+		Game game = FindObjectOfType<Game> ();
+		foreach (Tile t in GameObject.FindObjectsOfType<Tile>()) {
+			Sprite sprite = null;
+			switch(t.type) {
+			case Tile.TileType.NORMAL:
+				sprite = game.NORMAL_SPRITE;
+				break;
+
+			case Tile.TileType.EVENT:
+				sprite = game.EVENT_SPRITE;
+				break;
+
+			case Tile.TileType.HOSPITAL:
+				sprite = game.HOSPITAL_SPRITE;
+				break;
+
+			case Tile.TileType.PHARMACY:
+				sprite = game.PHARMACY_SPRITE;
+				break;
+			}
+			t.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+		}
 	}
 }
