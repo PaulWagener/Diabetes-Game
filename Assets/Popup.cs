@@ -13,7 +13,6 @@ public class Popup : MonoBehaviour {
 	private GameObject origin;
 	private Text sliderTextField;
 
-	private Transform parentPanel;
 	private string description;
 	private string okText;
 	private string otherText;
@@ -62,7 +61,6 @@ public class Popup : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sliderTextField = slider.GetComponent<UpdateSlider>().sliderText;
-		parentPanel = OkButton.transform.parent;
 	}
 
 	public void ShowPopup(GameObject origin) {
