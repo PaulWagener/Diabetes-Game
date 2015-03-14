@@ -1,6 +1,3 @@
-using UnityEngine;
-using System.Collections;
-
 public class Food {
 
 	public static Food COLA = new Food(5, 3);

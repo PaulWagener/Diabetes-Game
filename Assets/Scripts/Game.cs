@@ -16,4 +16,8 @@ public class Game : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void triggerEvent() {
+
+	}
 }
