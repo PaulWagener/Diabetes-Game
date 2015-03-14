@@ -41,9 +41,6 @@ public class Player : MonoBehaviour {
 		game = FindObjectOfType<Game> ();
 		playerZ = gameObject.transform.position.z;
 
-		EatFood(Food.STUFF);
-		EatFood(Food.COLA);
-
 		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
 		foreach (Tile tile in tiles)
 		{

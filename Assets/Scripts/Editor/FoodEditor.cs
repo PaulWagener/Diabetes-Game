@@ -33,6 +33,7 @@ public class FoodEditor : Editor
 			}
 			minTile.food = food;
 			food.transform.position = minTile.transform.position;
+			EditorUtility.SetDirty(minTile);
 		}
 	}
 }
