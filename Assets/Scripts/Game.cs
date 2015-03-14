@@ -42,6 +42,10 @@ public class Game : MonoBehaviour {
 		foreach (Player player in GameObject.FindObjectsOfType<Player>())
 			players.Add (player);
 
+		foreach (MovementCard card in cards) {
+			card.finalPosition = MovementCard.OUT_OF_VIEW_POSITION;
+		}
+
 	}
 
 	void ShowCardsSelecting() {
