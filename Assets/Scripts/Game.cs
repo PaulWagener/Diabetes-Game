@@ -4,6 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Game : MonoBehaviour {
+	public Sprite NORMAL_SPRITE;
+	public Sprite EVENT_SPRITE;
+	public Sprite HOSPITAL_SPRITE;
+	public Sprite PHARMACY_SPRITE;
 
 	[HideInInspector]
 	public List<Player> players;
