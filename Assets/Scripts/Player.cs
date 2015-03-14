@@ -70,6 +70,12 @@ public class Player : MonoBehaviour {
 		remainingMoves--;
 
 		if (remainingMoves == 0) {
+			// Eat the food on the final tile
+			if (newTile.food) {
+				EatFood(newTile.food);
+				Destroy(newTile.food.gameObject);
+			}
+
 			game.EndPlayerMoveTurn();
 		}
 	}
