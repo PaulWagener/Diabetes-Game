@@ -37,18 +37,12 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		game = FindObjectOfType<Game> ();
 		playerZ = gameObject.transform.position.z;
 
 		EatFood(Food.STUFF);
 		EatFood(Food.COLA);
-
-
-		Nom ();
-		Debug.Log(glucoseLevel);
-		EatFood (Food.COLA);
-		Nom ();
-		Debug.Log(glucoseLevel);
 
 		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
 		foreach (Tile tile in tiles)
@@ -59,6 +53,8 @@ public class Player : MonoBehaviour {
 				break;
 			}
 		}
+
+		playerZ = gameObject.transform.position.z;
 	}
 	
 	// Animate to the current tile
@@ -81,7 +77,7 @@ public class Player : MonoBehaviour {
 
 		if (remainingMoves == 0) {
 			// Eat the food on the final tile
-			if (newTile.food) {
+			if (newTile.food != null) {
 				EatFood(newTile.food);
 				Destroy(newTile.food.gameObject);
 			}
