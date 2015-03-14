@@ -9,6 +9,8 @@ public class Game : MonoBehaviour {
 	public Sprite HOSPITAL_SPRITE;
 	public Sprite PHARMACY_SPRITE;
 
+	public Popup popup;
+
 	[HideInInspector]
 	public List<Player> players;
 
@@ -40,16 +42,25 @@ public class Game : MonoBehaviour {
 		StartNextPlayerTurn ();
 	}
 
+	public void OnOkButton() {
+		CurrentPlayer.glucoseLevel -= popup.SliderVal;
+		CurrentPlayer.Nom();
+		CurrentPlayer.remainingMoves = 5;
+	}
+
 	public void StartNextPlayerTurn() {
 		currentPlayerIndex++;
 		if (currentPlayerIndex >= players.Count) {
 			currentPlayerIndex = 0;
 		}
 
+		popup.Description = "Set Insuline!";
+		popup.OtherText = "";
+		popup.slider.gameObject.SetActive(true);
+		popup.ShowPopup(gameObject);
+
 		// Start the card selecting phase
 		// TODO
-
-		CurrentPlayer.remainingMoves = 5;
 
 		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";
 		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";

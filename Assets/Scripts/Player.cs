@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
 			_glucoLevel = value;
 		}}
 
-	private void Nom() {
+	public void Nom() {
 		List<Food> toRemove = new List<Food>();
 
 		foreach(Food food in eatenFood) {
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
 				EatFood(newTile.food);
 				Destroy(newTile.food.gameObject);
 			}
-			Nom();
+
 			game.EndPlayerMoveTurn();
 		}
 	}
