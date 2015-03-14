@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour {
 
 	public List<Tile> connectingTiles;
 
+	public Food food; 
+
 	private Game game;
 
 	[HideInInspector]
