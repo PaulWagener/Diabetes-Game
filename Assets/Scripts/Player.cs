@@ -53,9 +53,6 @@ public class Player : MonoBehaviour {
 		glucoSlider = FindObjectOfType<Slider>();
 		playerZ = gameObject.transform.position.z;
 
-		EatFood(Food.STUFF);
-		EatFood(Food.COLA);
-
 		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
 		foreach (Tile tile in tiles)
 		{
