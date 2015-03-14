@@ -18,8 +18,8 @@ public class EventManager : MonoBehaviour
 		}
 	}
 
-	public void DisplayRandomEvent()
+	public void DisplayRandomEvent(Player player)
 	{
-		Event e = events[Random.Range(0, events.Count)];
+		events[Random.Range(0, events.Count)].Execute(player);
 	}
 }
