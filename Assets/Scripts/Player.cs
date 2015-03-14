@@ -49,6 +49,16 @@ public class Player : MonoBehaviour {
 		EatFood (Food.COLA);
 		Nom ();
 		Debug.Log(glucoseLevel);
+
+		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
+		foreach (Tile tile in tiles)
+		{
+			if (tile.starttile)
+			{
+				currentTile = tile;
+				break;
+			}
+		}
 	}
 	
 	// Animate to the current tile

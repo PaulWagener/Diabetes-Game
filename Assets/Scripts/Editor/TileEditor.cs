@@ -39,5 +39,40 @@ public class TileEditor : Editor
 			}
 			EditorUtility.SetDirty(tile);
 		}
+
+		if (GUILayout.Button("Add all nearby adjacency"))
+		{
+			Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
+			foreach (Tile tile2 in tiles)
+			{
+				foreach (Tile adjtile in tiles)
+				{
+					if (adjtile != tile2 && Vector3.Distance(adjtile.transform.position, tile2.transform.position) < TileDistance * 1.5f)
+					{
+						if (!tile2.connectingTiles.Contains(adjtile))
+							tile2.connectingTiles.Add(adjtile);
+					}
+					EditorUtility.SetDirty(tile2);
+				}
+			}
+		}
+
+		if (GUILayout.Button("Set as start tile") && !tile.starttile)
+		{
+			Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
+			foreach (Tile tile2 in tiles)
+			{
+				if (tile2.starttile)
+				{
+					tile2.starttile = false;
+					EditorUtility.SetDirty(tile2);
+				}
+			}
+			tile.starttile = false;
+			EditorUtility.SetDirty(tile);
+		}
+
+		if (tile.starttile)
+			GUILayout.Label("This is the starting tile");
 	}
 }
