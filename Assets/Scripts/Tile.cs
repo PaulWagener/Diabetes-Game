@@ -18,6 +18,6 @@ public class Tile : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		game.currentPlayer.currentTile = this;
+		game.OnTileClicked (this);
 	}
 }
