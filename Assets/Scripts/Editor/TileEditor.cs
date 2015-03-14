@@ -19,11 +19,11 @@ public class TileEditor : Editor
 			float y = tile.transform.position.y;
 			float z = tile.transform.position.z;
 
-			int ty = Mathf.RoundToInt(y / (Mathf.Sin(Mathf.PI / 3.0f) * TileDistance));
-			x -= 0.5f * TileDistance * (ty % 2);
-			int tx = Mathf.RoundToInt(x / TileDistance);
+			int tx = Mathf.RoundToInt(x / (Mathf.Sin(Mathf.PI / 3.0f) * TileDistance));
+			y -= 0.5f * TileDistance * (tx % 2);
+			int ty = Mathf.RoundToInt(y / TileDistance);
 
-			tile.transform.position = new Vector3((tx + 0.5f * (ty % 2)) * TileDistance, ty * (Mathf.Sin(Mathf.PI / 3.0f) * TileDistance), z);
+			tile.transform.position = new Vector3(tx * (Mathf.Sin(Mathf.PI / 3.0f) * TileDistance), (ty + 0.5f * (tx % 2)) * TileDistance, z);
 		}
 
 		if (GUILayout.Button("Add nearby adjacency"))

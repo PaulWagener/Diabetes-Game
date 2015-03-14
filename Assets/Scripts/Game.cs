@@ -56,7 +56,10 @@ public class Game : MonoBehaviour {
 	}
 
 	public void OnTileClicked(Tile t) {
-		CurrentPlayer.MoveToTile(t);
-		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
+		if (CurrentPlayer.currentTile.connectingTiles.Contains(t))
+		{
+			CurrentPlayer.MoveToTile(t);
+			remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
+		}
 	}
 }
