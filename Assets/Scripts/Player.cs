@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 	
@@ -16,7 +17,17 @@ public class Player : MonoBehaviour {
 		eatenFood.Add(food);
 	}
 
-	public int glucoseLevel = 0;
+	private int _glucoLevel = 0;
+	private Slider glucoSlider;
+
+	public int glucoseLevel {
+		get {
+			return _glucoLevel;
+		}
+		set {
+			glucoSlider.value = value;
+			_glucoLevel = value;
+		}}
 
 	private void Nom() {
 		List<Food> toRemove = new List<Food>();
@@ -39,6 +50,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 
 		game = FindObjectOfType<Game> ();
+		glucoSlider = FindObjectOfType<Slider>();
 		playerZ = gameObject.transform.position.z;
 
 		EatFood(Food.STUFF);
