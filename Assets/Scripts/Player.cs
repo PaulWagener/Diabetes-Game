@@ -14,6 +14,16 @@ public class Player : MonoBehaviour {
 	void Start () {
 		game = FindObjectOfType<Game> ();
 		playerZ = gameObject.transform.position.z;
+		
+		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
+		foreach (Tile tile in tiles)
+		{
+			if (tile.starttile)
+			{
+				currentTile = tile;
+				break;
+			}
+		}
 	}
 	
 	// Animate to the current tile

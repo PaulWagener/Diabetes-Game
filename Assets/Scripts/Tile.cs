@@ -8,6 +8,9 @@ public class Tile : MonoBehaviour {
 
 	private Game game;
 
+	[HideInInspector]
+	public bool starttile = false;
+
 	// Use this for initialization
 	void Start () {
 		game = FindObjectOfType<Game> ();

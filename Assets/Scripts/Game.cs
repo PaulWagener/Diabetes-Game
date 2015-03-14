@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game : MonoBehaviour {
 
-	public Player[] players;
+	[HideInInspector]
+	public List<Player> players;
 
 	// Whose turn is it?
 	private int currentPlayerIndex = -1;
@@ -20,6 +22,8 @@ public class Game : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StartNextPlayerTurn ();
+		foreach (Player player in GameObject.FindObjectsOfType<Player>())
+			players.Add(player);
 	}
 	
 	// Update is called once per frame
@@ -34,15 +38,17 @@ public class Game : MonoBehaviour {
 
 	public void StartNextPlayerTurn() {
 		currentPlayerIndex++;
-		if (currentPlayerIndex >= players.Length) {
+		if (currentPlayerIndex >= players.Count) {
 			currentPlayerIndex = 0;
 		}
-		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";
 
 		// Start the card selecting phase
 		// TODO
 
 		CurrentPlayer.remainingMoves = 5;
+
+		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";
+		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
 	}
 
 	public void OnTileClicked(Tile t) {

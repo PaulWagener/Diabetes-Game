@@ -56,5 +56,23 @@ public class TileEditor : Editor
 				}
 			}
 		}
+
+		if (GUILayout.Button("Set as start tile") && !tile.starttile)
+		{
+			Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
+			foreach (Tile tile2 in tiles)
+			{
+				if (tile2.starttile)
+				{
+					tile2.starttile = false;
+					EditorUtility.SetDirty(tile2);
+				}
+			}
+			tile.starttile = false;
+			EditorUtility.SetDirty(tile);
+		}
+
+		if (tile.starttile)
+			GUILayout.Label("This is the starting tile");
 	}
 }
