@@ -6,8 +6,6 @@ public class Tile : MonoBehaviour {
 
 	public List<Tile> connectingTiles;
 
-	public Sprite HOSPITAL_SPRITE;
-
 	public Food food; 
 
 	public enum TileType {

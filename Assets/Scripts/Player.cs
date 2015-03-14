@@ -42,6 +42,7 @@ public class Player : MonoBehaviour {
 		}
 		foreach(Food food in toRemove) {
 			eatenFood.Remove(food);
+			Destroy(food.gameObject);
 		}
 
 	}
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour {
 			// Eat the food on the final tile
 			if (newTile.food != null) {
 				EatFood(newTile.food);
-				Destroy(newTile.food.gameObject);
+				newTile.food.gameObject.SetActive(false);
 			}
 			Nom();
 			game.EndPlayerMoveTurn();
