@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour {
 
 	public List<Tile> connectingTiles;
 
+	public Food food; 
+
 	private Game game;
 
 	// Use this for initialization
@@ -17,11 +19,10 @@ public class Tile : MonoBehaviour {
 	void Update () {
 
 	}
-
+	
 	void OnMouseDown()
 	{
-		if (game.currentPlayer.currentTile.connectingTiles.Contains(this))
-			game.currentPlayer.currentTile = this;
+		game.OnTileClicked (this);
 	}
 
 	void OnDrawGizmos()
