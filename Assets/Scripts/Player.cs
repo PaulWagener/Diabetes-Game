@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		game = FindObjectOfType<Game> ();
 		playerZ = gameObject.transform.position.z;
 		
@@ -50,15 +51,7 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		EatFood(Food.STUFF);
-		EatFood(Food.COLA);
-
-
-		Nom ();
-		Debug.Log(glucoseLevel);
-		EatFood (Food.COLA);
-		Nom ();
-		Debug.Log(glucoseLevel);
+		playerZ = gameObject.transform.position.z;
 	}
 	
 	// Animate to the current tile

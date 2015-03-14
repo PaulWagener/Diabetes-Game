@@ -1,7 +1,4 @@
-using UnityEngine;
-using System.Collections;
-
-public class Food : MonoBehaviour {
+public class Food {
 
 	public static Food COLA = new Food(5, 3);
 	public static Food STUFF = new Food(3, 2);
