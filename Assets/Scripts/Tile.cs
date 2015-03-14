@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Tile : MonoBehaviour {
 
-	public Tile[] connectingTiles;
+	public List<Tile> connectingTiles;
 
 	private Game game;
 
@@ -16,8 +17,17 @@ public class Tile : MonoBehaviour {
 	void Update () {
 
 	}
-
-	void OnMouseDown() {
+	
+	void OnMouseDown()
+	{
 		game.OnTileClicked (this);
+	}
+
+	void OnDrawGizmos()
+	{
+		foreach (Tile adjtile in connectingTiles)
+		{
+			Gizmos.DrawLine(transform.position, adjtile.transform.position);
+		}
 	}
 }
