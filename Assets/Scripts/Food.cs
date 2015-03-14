@@ -3,7 +3,8 @@ using UnityEngine;
 public class Food : MonoBehaviour {
 
 
-	public int Duration, Increase;
+	public int Duration;
+	public float Increase;
 	public string Name;
 
 	private Food(int increase, int duration) {
