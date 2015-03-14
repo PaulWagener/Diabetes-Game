@@ -35,8 +35,11 @@ public class Popup : MonoBehaviour {
 		get {return otherText;}
 		set {
 			otherText = value;
-			OtherButton.GetComponentInChildren<Text>().text = value;
 			OtherButton.gameObject.SetActive(value != "");
+			if(value != "") {
+				OtherButton.GetComponentInChildren<Text>().text = value;
+			}
+
 		}
 	}
 

@@ -116,6 +116,8 @@ public class Game : MonoBehaviour {
 		CurrentPlayer.glucoseLevel -= popup.SliderVal;
 		CurrentPlayer.Nom();
 		CurrentPlayer.remainingMoves = 5;
+
+		ShowCardsSelecting ();
 	}
 
 	public void StartNextPlayerTurn() {
@@ -131,8 +133,6 @@ public class Game : MonoBehaviour {
 
 		// Start the card selecting phase
 		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";
-		ShowCardsSelecting ();
-
 		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
 	}
 

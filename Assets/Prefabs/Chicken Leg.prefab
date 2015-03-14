@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 431312}
   - 114: {fileID: 11465302}
   m_Layer: 0
-  m_Name: Food
+  m_Name: Chicken Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
