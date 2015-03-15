@@ -33,6 +33,7 @@ public class FoodEditor : Editor
 			}
 			minTile.food = food;
 			food.transform.position = minTile.transform.position;
+			food.transform.position = new Vector3(food.transform.position.x, food.transform.position.y, -1.0f);
 			EditorUtility.SetDirty(minTile);
 		}
 	}
