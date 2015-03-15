@@ -23,6 +23,8 @@ public class Game : MonoBehaviour {
 
 	public GameObject digestingUIParent;
 
+	public BloodSugar bloodsugar;
+
 	// Whose turn is it?
 	private int currentPlayerIndex = -1;
 	public Player CurrentPlayer {
@@ -39,7 +41,6 @@ public class Game : MonoBehaviour {
 	public MovementCard[] cards;
 	public Text chooseCardsText;
 	public Button okButton;
-	public BloodSugar glucoSlider;
 
 	float closeCardsAfter = 0.0f;
 
@@ -100,13 +101,16 @@ public class Game : MonoBehaviour {
 	 */
 	public void OnCardsSelected() {
 		int totalMovement = 0;
+		int totalCards = 0;
 		foreach(MovementCard card in cards) {
+			totalCards++;
 			card.finalPosition = MovementCard.OUT_OF_VIEW_POSITION;
 			card.finalRotation = Quaternion.identity;
 			if (card.isSelected) {
 				totalMovement += card.steps;
 			}
 		}
+		CurrentPlayer.glucoseLevel -= totalCards;
 
 		CurrentPlayer.remainingMoves = totalMovement;
 		chooseCardsText.CrossFadeAlpha (0.0f, 0.2f, true);
@@ -175,6 +179,8 @@ public class Game : MonoBehaviour {
 			AddDigestingUI(CurrentPlayer, food, i);
 			i++;
 		}
+
+		bloodsugar.linkedPlayer = CurrentPlayer;
 
 		popup.ShowPopup(gameObject);
 		popup.Description = "Set Insuline!";

@@ -6414,6 +6414,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9d35e897d9ee1c41bced00ddd4a8b81, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1679099024
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11442952, guid: 81fa17e02efec465bb84187e6c1f76b8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1766821853}
+  m_Script: {fileID: 11500000, guid: 9c4b70ea4f2224d119008d8ec40a6799, type: 3}
 --- !u!114 &1686888882
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11433578, guid: b9d35e897d9ee1c41bced00ddd4a8b81,
@@ -7683,6 +7689,7 @@ MonoBehaviour:
   TAKE_3_STEPS: {fileID: 21300000, guid: 92712787fba064c308ffafbeb1e2d757, type: 3}
   prefabCard: {fileID: 11432454, guid: f482d941a206d44f3ae6c2f43e69dd7e, type: 2}
   digestingUIParent: {fileID: 1029041274}
+  bloodsugar: {fileID: 1679099024}
   whoseTurnText: {fileID: 1399879671}
   remainingMovesText: {fileID: 576674962}
   chooseCardsPanel: {fileID: 509504499}
@@ -7692,7 +7699,6 @@ MonoBehaviour:
   - {fileID: 785396159}
   chooseCardsText: {fileID: 1358938550}
   okButton: {fileID: 2026775612}
-  glucoSlider: {fileID: 0}
 --- !u!114 &1952711768
 MonoBehaviour:
   m_ObjectHideFlags: 0
