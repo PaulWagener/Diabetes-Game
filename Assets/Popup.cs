@@ -52,12 +52,17 @@ public class Popup : MonoBehaviour {
 	}
 
 	public void ClickOK() {
-		origin.SendMessage("OnOkButton");
+		if (origin.GetComponent<Event>())
+			origin.GetComponent<Event>().OnOkButton();
+		if (origin.GetComponent<Game>())
+			origin.GetComponent<Game>().OnOkButton();
 		gameObject.SetActive(false);
 	}
 
-	public void ClickOther() {
-		origin.SendMessage("OnOtherButton");
+	public void ClickOther()
+	{
+		if (origin.GetComponent<Event>())
+			origin.GetComponent<Event>().OnOtherButton();
 		gameObject.SetActive(false);
 	}
 

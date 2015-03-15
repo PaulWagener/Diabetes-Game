@@ -4,7 +4,7 @@ using System.Collections;
 
 public class MovementCard : MonoBehaviour {
 
-	public static Vector3 OUT_OF_VIEW_POSITION = new Vector3(0, -300, 0);
+	public static Vector3 OUT_OF_VIEW_POSITION = new Vector3(0, -400, 0);
 
 	public Vector3 finalPosition;
 	public Quaternion finalRotation;

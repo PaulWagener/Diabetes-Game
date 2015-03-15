@@ -92,7 +92,14 @@ public class Player : MonoBehaviour {
 				newTile.food.gameObject.SetActive(false);
 			}
 
-			game.EndPlayerMoveTurn();
+			if (newTile.type == Tile.TileType.EVENT)
+			{
+				FindObjectOfType<EventManager>().DisplayRandomEvent(this);
+			}
+			else
+			{
+				game.EndPlayerMoveTurn();
+			}
 		}
 	}
 }

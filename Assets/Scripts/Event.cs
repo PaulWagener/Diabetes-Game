@@ -25,8 +25,25 @@ public class Event : MonoBehaviour
 	{
 		this.player = player;
 
-		//TODO: display dialog
-		string descr = description.Replace("#", value.ToString());
+		Popup popup = FindObjectOfType<Game>().popup;
+		popup.ShowPopup(gameObject);
+		popup.slider.gameObject.SetActive(false);
+		popup.Description = title + "\n\n" + description.Replace("#", value.ToString());
+		if (options.Length == 0)
+		{
+			popup.OkText = "OK";
+			popup.OtherText = "";
+		}
+		else if (options.Length == 1)
+		{
+			popup.OkText = options[0];
+			popup.OtherText = "";
+		}
+		else if (options.Length == 2)
+		{
+			popup.OkText = options[0];
+			popup.OtherText = options[1];
+		}
 	}
 
 	public void ApplyEffect(int button)
@@ -47,6 +64,8 @@ public class Event : MonoBehaviour
 				}
 				break;
 		}
+
+		FindObjectOfType<Game>().EndPlayerMoveTurn();
 	}
 
 	public void OnOkButton()
