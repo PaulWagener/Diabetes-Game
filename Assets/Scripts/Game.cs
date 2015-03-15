@@ -32,9 +32,11 @@ public class Game : MonoBehaviour {
 	public Text remainingMovesText;
 
 	// GUI for card selecting
+	public GameObject chooseCardsPanel;
 	public MovementCard[] cards;
 	public Text chooseCardsText;
 	public Button okButton;
+	public Slider glucoSlider;
 
 	// Use this for initialization
 	void Start () {
@@ -45,11 +47,12 @@ public class Game : MonoBehaviour {
 		foreach (MovementCard card in cards) {
 			card.finalPosition = MovementCard.OUT_OF_VIEW_POSITION;
 		}
-
+		chooseCardsPanel.SetActive(false);
 	}
 
 	void ShowCardsSelecting() {
 		// GUI
+		chooseCardsPanel.SetActive(true);
 		chooseCardsText.CrossFadeAlpha (1.0f, 0.2f, true);
 		okButton.GetComponent<RectTransform>().anchoredPosition = new Vector2 (0.0f, -160.0f);
 
@@ -96,9 +99,10 @@ public class Game : MonoBehaviour {
 
 		CurrentPlayer.remainingMoves = totalMovement;
 		chooseCardsText.CrossFadeAlpha (0.0f, 0.2f, true);
-		okButton.transform.position = new Vector3 (1000.0f, 1000.0f, 0.0f);
 
 		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
+
+		chooseCardsPanel.SetActive(false);
 	}
 
 	void Update () {

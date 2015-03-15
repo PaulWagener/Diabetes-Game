@@ -9,7 +9,7 @@ public class Event : MonoBehaviour
 	public string description;
 	public Image image;
 	public string[] options;
-	float value;
+	public float value;
 
 	Player player;
 
@@ -26,6 +26,7 @@ public class Event : MonoBehaviour
 		this.player = player;
 
 		//TODO: display dialog
+		string descr = description.Replace("#", value.ToString());
 	}
 
 	public void ApplyEffect(int button)

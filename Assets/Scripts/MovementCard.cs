@@ -15,7 +15,7 @@ public class MovementCard : MonoBehaviour {
 
 	public int steps;
 	
-	void Start () {
+	void Awake () {
 		image = GetComponent<Image> ();
 	}
 	

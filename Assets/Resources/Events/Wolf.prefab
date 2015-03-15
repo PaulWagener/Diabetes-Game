@@ -45,7 +45,7 @@ MonoBehaviour:
     The adrenaline rush increases your blood sugar by 2.'
   image: {fileID: 0}
   options: []
-  action: 0
+  action: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

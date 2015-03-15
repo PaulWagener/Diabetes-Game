@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 
 		game = FindObjectOfType<Game> ();
-		glucoSlider = FindObjectOfType<Slider>();
+		glucoSlider = game.glucoSlider;
 		playerZ = gameObject.transform.position.z;
 
 		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
