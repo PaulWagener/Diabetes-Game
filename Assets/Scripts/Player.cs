@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 		eatenFood.Add(food);
 	}
 
-	private float _glucoLevel = 0f;
+	private float _glucoLevel = 6f;
 	private Slider glucoSlider;
 
 	public float glucoseLevel {
