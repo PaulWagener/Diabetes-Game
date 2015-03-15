@@ -42,9 +42,10 @@ MonoBehaviour:
   title: Wolf in the woods!
   description: 'While you are walking through the woods, you suddenly see a wolf.
 
-    The adrenaline rush increases your blood sugar by 2.'
+    The adrenaline rush increases your blood sugar by #.'
   image: {fileID: 0}
   options: []
+  value: 2
   action: 1
 --- !u!1001 &100100000
 Prefab:

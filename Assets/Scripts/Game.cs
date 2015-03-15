@@ -38,6 +38,8 @@ public class Game : MonoBehaviour {
 	public Button okButton;
 	public Slider glucoSlider;
 
+	float closeCardsAfter = 0.0f;
+
 	// Use this for initialization
 	void Start () {
 		StartNextPlayerTurn ();
@@ -53,6 +55,7 @@ public class Game : MonoBehaviour {
 	void ShowCardsSelecting() {
 		// GUI
 		chooseCardsPanel.SetActive(true);
+		closeCardsAfter = 0.0f;
 		chooseCardsText.CrossFadeAlpha (1.0f, 0.2f, true);
 		okButton.GetComponent<RectTransform>().anchoredPosition = new Vector2 (0.0f, -160.0f);
 
@@ -102,7 +105,7 @@ public class Game : MonoBehaviour {
 
 		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
 
-		chooseCardsPanel.SetActive(false);
+		closeCardsAfter = 0.5f;
 	}
 
 	void Update () {
@@ -113,10 +116,19 @@ public class Game : MonoBehaviour {
 			t.localRotation = Quaternion.Lerp(t.localRotation, c.finalRotation, 0.1f);
 		}
 
+		if (closeCardsAfter > 0.0f)
+		{
+			closeCardsAfter -= Time.deltaTime;
+			if (closeCardsAfter <= 0.0f)
+			{
+				closeCardsAfter = 0.0f;
+
+				chooseCardsPanel.SetActive(false);
+			}
+		}
 	}
 
 	public void EndPlayerMoveTurn() {
-		Debug.Log("Einde beurt");
 		StartNextPlayerTurn ();
 	}
 
@@ -134,10 +146,11 @@ public class Game : MonoBehaviour {
 			currentPlayerIndex = 0;
 		}
 
+		popup.ShowPopup(gameObject);
 		popup.Description = "Set Insuline!";
+		popup.OkText = "OK";
 		popup.OtherText = "";
 		popup.slider.gameObject.SetActive(true);
-		popup.ShowPopup(gameObject);
 
 		// Start the card selecting phase
 		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";

@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 public class EventManager : MonoBehaviour
 {
+	Object[] eventobjects;
 	List<Event> events;
 
 	// Use this for initialization
 	void Start()
 	{
 		events = new List<Event>();
-		Object[] eventobjects = Resources.LoadAll("Events");
+		eventobjects = Resources.LoadAll("Events");
 		foreach (Object o in eventobjects)
 		{
 			if (o as GameObject && (o as GameObject).GetComponent<Event>())

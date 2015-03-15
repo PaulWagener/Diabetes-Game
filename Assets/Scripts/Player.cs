@@ -17,15 +17,13 @@ public class Player : MonoBehaviour {
 		eatenFood.Add(food);
 	}
 
-	private float _glucoLevel = 0f;
-	private Slider glucoSlider;
+	private float _glucoLevel = 6f;
 
 	public float glucoseLevel {
 		get {
 			return _glucoLevel;
 		}
 		set {
-			glucoSlider.value = value;
 			_glucoLevel = value;
 		}}
 
@@ -51,7 +49,6 @@ public class Player : MonoBehaviour {
 	void Start () {
 
 		game = FindObjectOfType<Game> ();
-		glucoSlider = game.glucoSlider;
 		playerZ = gameObject.transform.position.z;
 
 		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
@@ -92,7 +89,14 @@ public class Player : MonoBehaviour {
 				newTile.food.gameObject.SetActive(false);
 			}
 
-			game.EndPlayerMoveTurn();
+			if (newTile.type == Tile.TileType.EVENT)
+			{
+				FindObjectOfType<EventManager>().DisplayRandomEvent(this);
+			}
+			else
+			{
+				game.EndPlayerMoveTurn();
+			}
 		}
 	}
 }

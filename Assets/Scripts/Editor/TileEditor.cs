@@ -44,6 +44,8 @@ public class TileEditor : Editor
 		{
 			Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
 			foreach (Tile tile2 in tiles)
+				tile2.connectingTiles.Clear();
+			foreach (Tile tile2 in tiles)
 			{
 				foreach (Tile adjtile in tiles)
 				{
