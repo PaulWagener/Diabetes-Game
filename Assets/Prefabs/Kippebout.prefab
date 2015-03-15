@@ -71,6 +71,7 @@ MonoBehaviour:
   Duration: 0
   Increase: 0
   Name: Kippebout
+  sprite: {fileID: 21300000, guid: 279ab61f147a44fe5abb841cdebc5fdd, type: 3}
 --- !u!212 &21289420
 SpriteRenderer:
   m_ObjectHideFlags: 1

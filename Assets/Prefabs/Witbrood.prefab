@@ -71,6 +71,7 @@ MonoBehaviour:
   Duration: 1
   Increase: 3
   Name: Witbrood
+  sprite: {fileID: 21300000, guid: 7c2abf65dcfee45288ccac37a8b22ace, type: 3}
 --- !u!212 &21287514
 SpriteRenderer:
   m_ObjectHideFlags: 1

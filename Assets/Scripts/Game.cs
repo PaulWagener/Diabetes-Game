@@ -185,8 +185,6 @@ public class Game : MonoBehaviour {
 		// Start the card selecting phase
 		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";
 		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
-		glucoSlider.linkedPlayer = CurrentPlayer;
-
 	}
 
 	public void OnTileClicked(Tile t) {

@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
 
 	float playerZ;
 	
-	private List<Food> eatenFood = new List<Food>();
+	public List<Food> eatenFood = new List<Food>();
 
 	public void EatFood(Food food) {
 		eatenFood.Add(food);

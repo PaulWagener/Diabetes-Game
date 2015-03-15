@@ -71,6 +71,7 @@ MonoBehaviour:
   Duration: 2
   Increase: 2.5
   Name: Banaan
+  sprite: {fileID: 21300000, guid: 5c862bcbf01e14a91bfaba5f3c53dca8, type: 3}
 --- !u!212 &21213756
 SpriteRenderer:
   m_ObjectHideFlags: 1
