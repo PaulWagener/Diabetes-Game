@@ -9,6 +9,8 @@ public class Game : MonoBehaviour {
 	public Sprite HOSPITAL_SPRITE;
 	public Sprite PHARMACY_SPRITE;
 
+	public DigestingFoodGUI digestingUIPrefab;
+
 	public Popup popup;
 
 	public Sprite TAKE_1_STEP;
@@ -16,8 +18,10 @@ public class Game : MonoBehaviour {
 	public Sprite TAKE_3_STEPS;
 	
 	public MovementCard prefabCard;
-
+	
 	List<Player> players;
+
+	public GameObject digestingUIParent;
 
 	// Whose turn is it?
 	private int currentPlayerIndex = -1;
@@ -162,6 +166,16 @@ public class Game : MonoBehaviour {
 		}
 		while (skipped);
 
+		// Update the GUI to show the current digesting items of the current player
+		foreach(Transform t in digestingUIParent.transform) {
+			Destroy (t.gameObject);
+		}
+		int i = 0;
+		foreach (Food food in CurrentPlayer.eatenFood) {
+			AddDigestingUI(CurrentPlayer, food, i);
+			i++;
+		}
+
 		popup.ShowPopup(gameObject);
 		popup.Description = "Set Insuline!";
 		popup.OkText = "OK";
@@ -181,5 +195,14 @@ public class Game : MonoBehaviour {
 			CurrentPlayer.MoveToTile(t);
 			remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
 		}
+	}
+
+	public void AddDigestingUI(Player player, Food food, int index) {
+		DigestingFoodGUI ui = Instantiate<DigestingFoodGUI>(digestingUIPrefab);
+		ui.transform.SetParent (digestingUIParent.transform);
+		ui.transform.position = Vector3.zero;
+		ui.transform.rotation = Quaternion.identity;
+		ui.index = index;
+		ui.SetFood (food);
 	}
 }
