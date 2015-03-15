@@ -18,14 +18,12 @@ public class Player : MonoBehaviour {
 	}
 
 	private float _glucoLevel = 6f;
-	private Slider glucoSlider;
 
 	public float glucoseLevel {
 		get {
 			return _glucoLevel;
 		}
 		set {
-			glucoSlider.value = value;
 			_glucoLevel = value;
 		}}
 
@@ -51,7 +49,6 @@ public class Player : MonoBehaviour {
 	void Start () {
 
 		game = FindObjectOfType<Game> ();
-		glucoSlider = game.glucoSlider;
 		playerZ = gameObject.transform.position.z;
 
 		Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
