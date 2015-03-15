@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 12
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 10
@@ -113,6 +113,7 @@ MonoBehaviour:
   text: {fileID: 11487200}
   food: {fileID: 0}
   image: {fileID: 11472722}
+  index: 0
 --- !u!222 &22236096
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -139,9 +140,9 @@ RectTransform:
   - {fileID: 22482800}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 147.600006, y: 46.7999992}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22448500
@@ -158,7 +159,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -52.2000008, y: 0}
+  m_AnchoredPosition: {x: -192, y: -56}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22482800
@@ -175,8 +176,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 97.6999969, y: -3.79999995}
-  m_SizeDelta: {x: 236.699997, y: 49.7999992}
+  m_AnchoredPosition: {x: -73, y: -59}
+  m_SizeDelta: {x: 134.600006, y: 49.7999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

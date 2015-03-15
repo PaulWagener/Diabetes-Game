@@ -68,17 +68,16 @@ public class Game : MonoBehaviour {
 		chooseCardsPanel.SetActive(true);
 		closeCardsAfter = 0.0f;
 		chooseCardsText.CrossFadeAlpha (1.0f, 0.2f, true);
-		okButton.GetComponent<RectTransform>().anchoredPosition = new Vector2 (0.0f, -160.0f);
 
 		// Position the cards to show to the user
-		cards[0].finalPosition = new Vector3 (-100.0f, -50.0f, 0.0f);
+		cards[0].finalPosition = new Vector3 (-100.0f, -200.0f, 0.0f);
 		cards[0].finalRotation = Quaternion.Euler (new Vector3 (0.0f, 0.0f, 20.0f));
-		cards[1].finalPosition = new Vector3 (100.0f, -50.0f, 0.0f);
+		cards[1].finalPosition = new Vector3 (100.0f, -200.0f, 0.0f);
 		cards[1].finalRotation = Quaternion.Euler (new Vector3 (0.0f, 0.0f, -20.0f));
 
 		int numberOfCards = 3;
 		if (numberOfCards == 3) {
-			cards[2].finalPosition = new Vector3 (0.0f, -20.0f, 0.0f);
+			cards[2].finalPosition = new Vector3 (0.0f, -170.0f, 0.0f);
 			cards[2].finalRotation = Quaternion.identity;
 		}
 		cards [0].SetSelected (false);
@@ -144,7 +143,7 @@ public class Game : MonoBehaviour {
 	}
 
 	public void EndPlayerMoveTurn() {
-		StartNextPlayerTurn ();
+		Invoke ("StartNextPlayerTurn", 5.0f);
 	}
 
 	public void OnOkButton() {

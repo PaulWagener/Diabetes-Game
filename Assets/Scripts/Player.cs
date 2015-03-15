@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 
 	public void EatFood(Food food) {
 		eatenFood.Add(food);
+		game.AddDigestingUI (this, food, eatenFood.Count);
 	}
 
 	private float _glucoLevel = 6f;
