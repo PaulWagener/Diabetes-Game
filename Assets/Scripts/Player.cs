@@ -10,10 +10,13 @@ public class Player : MonoBehaviour {
 	public int remainingMoves = 5;
 	private Game game;
 
+	public int turnstoskip = 0;
+
 	float playerZ;
 
 	private List<Food> eatenFood = new List<Food>();
-	private void EatFood(Food food) {
+
+	public void EatFood(Food food) {
 		eatenFood.Add(food);
 	}
 

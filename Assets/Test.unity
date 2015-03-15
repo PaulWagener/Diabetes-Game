@@ -1210,12 +1210,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 586327210}
   m_Script: {fileID: 11500000, guid: 13ceb5190f002417ea00e5534daa317a, type: 3}
---- !u!114 &359168942
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11482910, guid: 8710d6233fb34374386676ec82611d4f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1013528498}
-  m_Script: {fileID: 11500000, guid: 49f50ebdba2254df8bcf4cb066dc53db, type: 3}
 --- !u!1001 &367200435
 Prefab:
   m_ObjectHideFlags: 0
@@ -5744,7 +5738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1604136395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6380,6 +6374,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9d35e897d9ee1c41bced00ddd4a8b81, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1679099024
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11442952, guid: 81fa17e02efec465bb84187e6c1f76b8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1766821853}
+  m_Script: {fileID: 11500000, guid: 9c4b70ea4f2224d119008d8ec40a6799, type: 3}
 --- !u!114 &1686888882
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11433578, guid: b9d35e897d9ee1c41bced00ddd4a8b81,
@@ -7607,6 +7607,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1952711766}
   - 114: {fileID: 1952711767}
+  - 114: {fileID: 1952711768}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -7646,9 +7647,6 @@ MonoBehaviour:
   TAKE_2_STEPS: {fileID: 21300000, guid: 751da272af13c4798af9c9768462a8cf, type: 3}
   TAKE_3_STEPS: {fileID: 21300000, guid: 92712787fba064c308ffafbeb1e2d757, type: 3}
   prefabCard: {fileID: 11432454, guid: f482d941a206d44f3ae6c2f43e69dd7e, type: 2}
-  players:
-  - {fileID: 379644843}
-  - {fileID: 359168942}
   whoseTurnText: {fileID: 1399879671}
   remainingMovesText: {fileID: 576674962}
   chooseCardsPanel: {fileID: 509504499}
@@ -7658,7 +7656,18 @@ MonoBehaviour:
   - {fileID: 785396159}
   chooseCardsText: {fileID: 1358938550}
   okButton: {fileID: 2026775612}
-  glucoSlider: {fileID: 0}
+  glucoSlider: {fileID: 1679099024}
+--- !u!114 &1952711768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1952711765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9795eae4d1ac7f44980d7e329fb0b7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1956235185
 Prefab:
   m_ObjectHideFlags: 0

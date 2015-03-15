@@ -10,6 +10,7 @@ public class Event : MonoBehaviour
 	public Image image;
 	public string[] options;
 	public float value;
+	public GameObject foodPrefab;
 
 	Player player;
 
@@ -17,7 +18,10 @@ public class Event : MonoBehaviour
 	{
 		Nothing,
 		Wolf,
-		GrandmaPie,
+		OmaTaart,
+		BosWandeling,
+		Banaan,
+		Huisarts
 	};
 	public EventAction action;
 
@@ -53,15 +57,30 @@ public class Event : MonoBehaviour
 			case EventAction.Wolf:
 				player.glucoseLevel += value;
 				break;
-			case EventAction.GrandmaPie:
+
+			case EventAction.OmaTaart:
 				if (button == 0)
 				{
 					player.glucoseLevel += value;
 				}
 				else
 				{
-					//TODO: wait for one turn
+					player.turnstoskip = 1;
 				}
+				break;
+
+			case EventAction.BosWandeling:
+				player.glucoseLevel -= value;
+				break;
+
+			case EventAction.Banaan:
+				GameObject banaan = Instantiate(foodPrefab) as GameObject;
+				player.EatFood(banaan.GetComponent<Food>());
+				banaan.SetActive(false);
+				break;
+
+			case EventAction.Huisarts:
+				player.glucoseLevel = 6;
 				break;
 		}
 

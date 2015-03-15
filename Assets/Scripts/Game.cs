@@ -17,8 +17,7 @@ public class Game : MonoBehaviour {
 	
 	public MovementCard prefabCard;
 
-	[HideInInspector]
-	public List<Player> players;
+	List<Player> players;
 
 	// Whose turn is it?
 	private int currentPlayerIndex = -1;
@@ -36,15 +35,20 @@ public class Game : MonoBehaviour {
 	public MovementCard[] cards;
 	public Text chooseCardsText;
 	public Button okButton;
-	public Slider glucoSlider;
+	public BloodSugar glucoSlider;
 
 	float closeCardsAfter = 0.0f;
+
+	void Awake()
+	{
+		players = new List<Player>();
+		foreach (Player player in GameObject.FindObjectsOfType<Player>())
+			players.Add(player);
+	}
 
 	// Use this for initialization
 	void Start () {
 		StartNextPlayerTurn ();
-		foreach (Player player in GameObject.FindObjectsOfType<Player>())
-			players.Add (player);
 
 		foreach (MovementCard card in cards) {
 			card.finalPosition = MovementCard.OUT_OF_VIEW_POSITION;
@@ -141,10 +145,22 @@ public class Game : MonoBehaviour {
 	}
 
 	public void StartNextPlayerTurn() {
-		currentPlayerIndex++;
-		if (currentPlayerIndex >= players.Count) {
-			currentPlayerIndex = 0;
+		bool skipped = false;
+		do
+		{
+			skipped = false;
+			currentPlayerIndex++;
+			if (currentPlayerIndex >= players.Count) {
+				currentPlayerIndex = 0;
+			}
+
+			if (players[currentPlayerIndex].turnstoskip > 0)
+			{
+				--players[currentPlayerIndex].turnstoskip;
+				skipped = true;
+			}
 		}
+		while (skipped);
 
 		popup.ShowPopup(gameObject);
 		popup.Description = "Set Insuline!";
@@ -155,6 +171,8 @@ public class Game : MonoBehaviour {
 		// Start the card selecting phase
 		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";
 		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
+		glucoSlider.linkedPlayer = CurrentPlayer;
+
 	}
 
 	public void OnTileClicked(Tile t) {

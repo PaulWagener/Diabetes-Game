@@ -21,6 +21,7 @@ public class EventManager : MonoBehaviour
 
 	public void DisplayRandomEvent(Player player)
 	{
+		Debug.Log(Random.Range(0, events.Count));
 		events[Random.Range(0, events.Count)].Execute(player);
 	}
 }
