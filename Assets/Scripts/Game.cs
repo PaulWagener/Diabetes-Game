@@ -105,10 +105,10 @@ public class Game : MonoBehaviour {
 		int totalMovement = 0;
 		int totalCards = 0;
 		foreach(MovementCard card in cards) {
-			totalCards++;
 			card.finalPosition = MovementCard.OUT_OF_VIEW_POSITION;
 			card.finalRotation = Quaternion.identity;
 			if (card.isSelected) {
+				totalCards++;
 				totalMovement += card.steps;
 			}
 		}
