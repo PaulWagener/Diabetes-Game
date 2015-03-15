@@ -20,10 +20,11 @@ public class Game : MonoBehaviour {
 	public MovementCard prefabCard;
 	
 	List<Player> players;
-
+	
 	public GameObject digestingUIParent;
 
 	public BloodSugar bloodsugar;
+	bool boarddisabled = false;
 
 	// Whose turn is it?
 	private int currentPlayerIndex = -1;
@@ -63,6 +64,7 @@ public class Game : MonoBehaviour {
 
 	void ShowCardsSelecting() {
 		// GUI
+		boarddisabled = true;
 		chooseCardsPanel.SetActive(true);
 		closeCardsAfter = 0.0f;
 		chooseCardsText.CrossFadeAlpha (1.0f, 0.2f, true);
@@ -118,6 +120,7 @@ public class Game : MonoBehaviour {
 		remainingMovesText.text = CurrentPlayer.remainingMoves + " zetten over";
 
 		closeCardsAfter = 0.5f;
+		boarddisabled = false;
 	}
 
 	void Update () {
@@ -152,7 +155,8 @@ public class Game : MonoBehaviour {
 		ShowCardsSelecting ();
 	}
 
-	public void StartNextPlayerTurn() {
+	public void StartNextPlayerTurn()
+	{
 		bool skipped = false;
 		do
 		{
@@ -162,9 +166,9 @@ public class Game : MonoBehaviour {
 				currentPlayerIndex = 0;
 			}
 
-			if (players[currentPlayerIndex].turnstoskip > 0)
+			if (CurrentPlayer.turnstoskip > 0)
 			{
-				--players[currentPlayerIndex].turnstoskip;
+				--CurrentPlayer.turnstoskip;
 				skipped = true;
 			}
 		}
@@ -187,6 +191,7 @@ public class Game : MonoBehaviour {
 		popup.OkText = "OK";
 		popup.OtherText = "";
 		popup.slider.gameObject.SetActive(true);
+		boarddisabled = true;
 
 		// Start the card selecting phase
 		whoseTurnText.text = "Player " + (currentPlayerIndex + 1) + " is aan de beurt";
@@ -194,6 +199,8 @@ public class Game : MonoBehaviour {
 	}
 
 	public void OnTileClicked(Tile t) {
+		if (boarddisabled)
+			return;
 		if (CurrentPlayer.currentTile.connectingTiles.Contains(t))
 		{
 			CurrentPlayer.MoveToTile(t);

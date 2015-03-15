@@ -40,12 +40,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Een wolf in het bos!
-  description: 'Je loopt door het box en komt plots een wold tegen.
+  description: 'Je oma staat erop dat je een stuk taart eet.
 
-    Door de adrenaline krijg je +# bloedsuiker.'
+    Kies leg uit om een beurt te gebruiken om geen taart te hoeven eten.
+
+    Anders stijgt je bloedsuiker met #.'
   image: {fileID: 0}
-  options: []
-  value: 2
+  options:
+  - Eet de taart
+  - Leg uit
+  value: 4
   foodPrefab: {fileID: 0}
   action: 2
 --- !u!1001 &100100000
