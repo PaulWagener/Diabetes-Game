@@ -143,7 +143,7 @@ public class Game : MonoBehaviour {
 	}
 
 	public void EndPlayerMoveTurn() {
-		Invoke ("StartNextPlayerTurn", 5.0f);
+		Invoke ("StartNextPlayerTurn", 3.0f);
 	}
 
 	public void OnOkButton() {
