@@ -22,7 +22,6 @@ public class BloodSugar : MonoBehaviour {
 	void Update () {
 		levelText.text = "Bloedsuiker: " + linkedPlayer.glucoseLevel;
 		float x = Map (linkedPlayer.glucoseLevel, 0.0f, 15.0f, -208.0f, 208.0f);
-		Indicator.anchoredPosition = new Vector3 (x, Indicator.anchoredPosition.y);
-			//.position = new Vector3 (0.0f, Indicator.position.y, Indicator.position.y);
+		Indicator.anchoredPosition = Vector2.Lerp(Indicator.anchoredPosition, new Vector3 (x, 123), 0.05f);
 	}
 }
